@@ -1,6 +1,8 @@
 name: Cron Example
 
 on:
+  schedule: # cron schedule every 5 mins
+    - cron: "* * * * *"
   workflow_dispatch:
 
 jobs:
