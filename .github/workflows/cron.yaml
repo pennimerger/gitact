@@ -1,0 +1,33 @@
+name: Cron Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-integration-tests:
+    runs-on: ubuntu-latest
+
+    defaults: # define context to run jobs
+      run:
+        working-directory: cron-example
+
+    steps:
+      - uses: actions/checkout@v2 # checkout repo to have all the files available
+      
+      # Setup Nodejs
+      - name: Setup Node.js 12
+        uses: actions/setup-node@v1
+        with: # param (node-version) to use with git-mktplc action
+          node-version: "12.x"
+      
+      # Install Yarn
+      - name: Install yarn
+        run: npm install --global yarn
+
+      # Install libraries
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      # Run tests
+      - name: Run tests
+        run: yarn test
