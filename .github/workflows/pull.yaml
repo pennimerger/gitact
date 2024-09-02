@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-integration-tests:
+  pull-request:
     runs-on: ubuntu-latest
 
     defaults:
@@ -20,6 +20,7 @@ jobs:
         with:
           node-version: "16.x"
           cache: "npm" # use cached npm packages instead of fresh packages at every install
+          cache-dependency-path: typescript-project/yarn.lock
       
       # Install Yarn
       - name: Install yarn
