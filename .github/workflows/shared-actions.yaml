@@ -10,4 +10,5 @@ jobs:
   # use actions from github marketplace
     steps:
       - uses: actions/checkout@v2 # org_name/repo@version
-        run: ls # list dir&files in checked out repo
+      
+      -  run: ls # list dir&files in checked out repo
